@@ -6,24 +6,24 @@ const START_VIDEO = "https://stream.mux.com/9JXDljEVWYwWu01PUkAemafDugK89o01BR6z
 const STEPS = [
   {
     number: "01",
-    title: "Discovery Call",
-    body: "We learn your brand, your goals, and what sets you apart. One hour. No fluff.",
+    title: "Pick Your Plan",
+    body: "Monthly, quarterly, or annual — choose the subscription that fits your household. Cancel any time.",
   },
   {
     number: "02",
-    title: "Design & Build",
-    body: "Our team crafts your site — editorial layout, cinematic video, glass-surface depth.",
+    title: "Connect Any Device",
+    body: "Smart TV, Fire Stick, Apple TV, Android, iPhone, PC — if it has a screen, it streams.",
   },
   {
     number: "03",
-    title: "Launch & Grow",
-    body: "Your site goes live in days, not months. We handle hosting, speed, and SEO from day one.",
+    title: "Watch Instantly",
+    body: "Your account is live in under three minutes. Thousands of channels, zero waiting.",
   },
 ];
 
 export function StartSection() {
   return (
-    <section id="services" className="relative overflow-hidden min-h-section">
+    <section id="features" className="relative overflow-hidden min-h-section">
       <VideoBackground src={START_VIDEO} />
 
       <div className="relative z-20 flex flex-col items-center text-center px-6 py-32 gap-16">
@@ -33,11 +33,11 @@ export function StartSection() {
             How It Works
           </div>
           <BlurText
-            text="From Brief to Live in Days."
+            text="Live in Three Minutes."
             className="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9] max-w-2xl"
           />
           <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl">
-            Our process is tight, intentional, and built for brands that move fast.
+            No satellite dish. No engineer visit. Just sign up, connect, and stream.
           </p>
         </div>
 

@@ -1,75 +1,62 @@
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { BlurText } from "./BlurText";
 
-const HERO_VIDEO =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4";
+const SPORT_LOGOS = [
+  { label: "NBA", emoji: "🏀" },
+  { label: "NFL", emoji: "🏈" },
+  { label: "MLB", emoji: "⚾" },
+  { label: "UFC", emoji: "🥊" },
+  { label: "Formula 1", emoji: "🏎️" },
+  { label: "Premier League", emoji: "⚽" },
+  { label: "NBA", emoji: "🎾" },
+  { label: "Olympics", emoji: "🏅" },
+];
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.src = HERO_VIDEO;
-    }
-  }, []);
-
   return (
-    <section className="relative overflow-hidden" style={{ height: "1000px" }}>
-      {/* Video — positioned from 20% down per spec */}
-      <video
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute left-0 right-0 w-full h-full object-cover z-0"
-        style={{ top: "20%" }}
-      />
+    <section className="relative overflow-hidden min-h-[720px] flex flex-col">
+      {/* Stadium background */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/hero_stadium.png"
+          alt=""
+          className="w-full h-full object-cover object-top"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/65" />
+      </div>
 
       {/* Top fade */}
       <div
         className="absolute top-0 left-0 right-0 pointer-events-none z-10"
-        style={{
-          height: 200,
-          background: "linear-gradient(to bottom, #000000, transparent)",
-        }}
+        style={{ height: 160, background: "linear-gradient(to bottom, #000, transparent)" }}
       />
-
-      {/* Bottom fade — 300px for hero */}
+      {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 pointer-events-none z-10"
-        style={{
-          height: 300,
-          background: "linear-gradient(to top, #000000, transparent)",
-        }}
+        style={{ height: 220, background: "linear-gradient(to top, #000, transparent)" }}
       />
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col items-center justify-center text-center h-full px-6 pb-32 gap-8">
-        {/* Announcement badge */}
+      <div className="relative z-20 flex flex-col items-center justify-center text-center flex-1 px-6 pt-40 pb-24 gap-7">
+        {/* Badge */}
         <motion.div
           initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
           animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="liquid-glass rounded-full px-1 py-1 inline-flex items-center gap-2">
-            <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-semibold font-body">
-              New
-            </span>
-            <span className="text-white text-sm font-body pr-2">
-              Introducing AI-powered web design.
-            </span>
+            <span className="bg-white text-black rounded-full px-3 py-1 text-xs font-semibold font-body">Live</span>
+            <span className="text-white text-sm font-body pr-2">15,000+ channels streaming right now.</span>
           </div>
         </motion.div>
 
         {/* Headline */}
         <BlurText
-          text="The Website Your Brand Deserves"
-          className="text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.8] tracking-[-4px] max-w-4xl"
-          delay={200}
+          text="Premium IPTV Service at Affordable Price"
+          className="text-5xl md:text-6xl lg:text-7xl font-heading italic text-white leading-[0.85] tracking-[-3px] max-w-4xl"
+          delay={150}
         />
 
         {/* Subtext */}
@@ -77,9 +64,9 @@ export function Hero() {
           initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
           animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-white/60 font-body font-light text-sm md:text-base max-w-xl"
+          className="text-white/60 font-body font-light text-sm md:text-base max-w-lg"
         >
-          We build luxury editorial websites for ambitious brands — fast, cinematic, and built to convert.
+          Crystal-clear 4K streams, zero buffering, and every sport, movie, and series — on any screen, any time.
         </motion.p>
 
         {/* CTAs */}
@@ -87,16 +74,36 @@ export function Hero() {
           initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
           animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.1 }}
-          className="flex items-center gap-4"
+          className="flex items-center gap-4 flex-wrap justify-center"
         >
-          <button className="liquid-glass-strong rounded-full px-5 py-2.5 text-white font-body text-sm font-medium inline-flex items-center gap-2">
+          <button className="liquid-glass-strong rounded-full px-6 py-3 text-white font-body text-sm font-medium inline-flex items-center gap-2">
             Get Started <ArrowUpRight size={16} />
           </button>
-          <button className="text-white font-body text-sm font-light inline-flex items-center gap-2">
-            <Play size={14} fill="white" /> Watch the Film
+          <button className="bg-white text-black rounded-full px-6 py-3 text-sm font-body font-medium">
+            View Plans
           </button>
         </motion.div>
       </div>
+
+      {/* Sport logos strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 1.4 }}
+        className="relative z-20 pb-10"
+      >
+        <div className="flex items-center justify-center gap-2 flex-wrap px-6">
+          {SPORT_LOGOS.map(({ label, emoji }) => (
+            <div
+              key={label + emoji}
+              className="liquid-glass rounded-full px-4 py-2 flex items-center gap-2"
+            >
+              <span className="text-lg leading-none">{emoji}</span>
+              <span className="text-white/70 font-body text-xs font-medium">{label}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

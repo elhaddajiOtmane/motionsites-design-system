@@ -4,23 +4,23 @@ import { BlurText } from "./BlurText";
 const FEATURES = [
   {
     icon: Zap,
-    title: "Days, Not Months",
-    body: "We move at the speed of your ambition. From kickoff to launch in under two weeks — guaranteed.",
+    title: "Zero Buffering",
+    body: "Our ultra-low-latency CDN serves streams from 50+ global edge nodes — so you never miss a goal, a scene, or a beat.",
   },
   {
     icon: Palette,
-    title: "Obsessively Crafted",
-    body: "No templates. No shortcuts. Every element is designed to feel like it belongs only to your brand.",
+    title: "Every Device",
+    body: "Smart TV, Fire Stick, Apple TV, Roku, Android, iOS, PC, Mac. One account. Up to 5 simultaneous streams.",
   },
   {
     icon: BarChart3,
-    title: "Built to Convert",
-    body: "Beautiful sites that also perform. Our layouts are engineered to guide visitors toward action.",
+    title: "50K+ On Demand",
+    body: "Movies, series, documentaries, and specials available instantly — no waiting, no scheduling, no limits.",
   },
   {
     icon: Shield,
-    title: "Secure by Default",
-    body: "Enterprise-grade hosting, SSL, and performance baked in from the start. Your site, protected.",
+    title: "Secure & Private",
+    body: "End-to-end encrypted streams. No logs, no tracking, no sharing your viewing data. Your watchlist is yours alone.",
   },
 ];
 
@@ -31,14 +31,14 @@ export function FeaturesGrid() {
         {/* Heading block */}
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
-            Why Us
+            Why MotionTV
           </div>
           <BlurText
-            text="Everything Your Site Needs."
+            text="Built for Serious Viewers."
             className="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9] max-w-2xl"
           />
           <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl">
-            We handle every dimension of your web presence — design, performance, security, and conversion.
+            We obsess over every frame so your only job is to sit back and watch.
           </p>
         </div>
 

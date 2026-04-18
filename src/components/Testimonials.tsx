@@ -3,21 +3,21 @@ import { BlurText } from "./BlurText";
 const TESTIMONIALS = [
   {
     quote:
-      "Motionsites delivered a site that looks like it cost ten times what we paid. Our conversion rate doubled in the first month.",
-    name: "Aria Nakamura",
-    role: "Founder, Luminos Studio",
+      "I cancelled my cable subscription the day I found MotionTV. 300+ sports channels, crystal-clear picture, and it costs less than a pizza night.",
+    name: "Marcus D.",
+    role: "Subscriber since 2024",
   },
   {
     quote:
-      "I've worked with four agencies. None of them moved this fast or cared this deeply about the details. The result speaks for itself.",
-    name: "James Okafor",
-    role: "CEO, Vantage Capital",
+      "Every international channel my family needs — Arabic, French, Turkish — all in HD. Setup took four minutes. I'm not going back.",
+    name: "Leila B.",
+    role: "Family Plan Subscriber",
   },
   {
     quote:
-      "The team understood our brand immediately. The site feels cinematic — it's the first thing people mention on sales calls.",
-    name: "Sofía Reyes",
-    role: "Creative Director, Aurum",
+      "Tested six IPTV services over two years. MotionTV is the only one that hasn't buffered once during a live match. That's everything.",
+    name: "Ryan O.",
+    role: "Premium Plan Subscriber",
   },
 ];
 
@@ -28,14 +28,14 @@ export function Testimonials() {
         {/* Heading block */}
         <div className="flex flex-col items-center gap-4 text-center">
           <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
-            Testimonials
+            Subscribers
           </div>
           <BlurText
-            text="Brands That Trust Us."
+            text="Thousands Stream. All Stay."
             className="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9] max-w-2xl"
           />
           <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl">
-            Don't take our word for it. Here's what founders and creative directors say after working with us.
+            Our renewal rate speaks for itself. Here's what real subscribers say.
           </p>
         </div>
 

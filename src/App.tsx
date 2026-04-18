@@ -1,23 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { StartSection } from "./components/StartSection";
-import { FeaturesChess } from "./components/FeaturesChess";
-import { FeaturesGrid } from "./components/FeaturesGrid";
-import { Stats } from "./components/Stats";
-import { Testimonials } from "./components/Testimonials";
+import { HomePage } from "./pages/HomePage";
+import { ChannelsPage } from "./pages/ChannelsPage";
+import { PricingPage } from "./pages/PricingPage";
+import { SupportPage } from "./pages/SupportPage";
 import { CtaFooter } from "./components/CtaFooter";
 
 export default function App() {
   return (
-    <div className="bg-black min-h-screen">
-      <Navbar />
-      <Hero />
-      <StartSection />
-      <FeaturesChess />
-      <FeaturesGrid />
-      <Stats />
-      <Testimonials />
-      <CtaFooter />
-    </div>
+    <BrowserRouter>
+      <div className="bg-black min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/channels" element={<ChannelsPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/support" element={<SupportPage />} />
+        </Routes>
+        <CtaFooter />
+      </div>
+    </BrowserRouter>
   );
 }

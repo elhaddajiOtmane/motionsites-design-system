@@ -4,10 +4,10 @@ import { BlurText } from "./BlurText";
 const STATS_VIDEO = "https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8";
 
 const STAT_ITEMS = [
-  { value: "150+", label: "Sites Launched" },
-  { value: "98%", label: "Client Retention" },
-  { value: "3×", label: "Avg. Conversion Lift" },
-  { value: "48hr", label: "First Draft Turnaround" },
+  { value: "15K+", label: "Live Channels" },
+  { value: "50K+", label: "On-Demand Titles" },
+  { value: "99.9%", label: "Uptime Guaranteed" },
+  { value: "4K", label: "Ultra HD Streams" },
 ];
 
 export function Stats() {
@@ -19,10 +19,10 @@ export function Stats() {
         {/* Heading block */}
         <div className="flex flex-col items-center gap-4">
           <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
-            Results
+            By the Numbers
           </div>
           <BlurText
-            text="The Numbers Don't Lie."
+            text="The Scale to Match Your Appetite."
             className="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white tracking-tight leading-[0.9] max-w-2xl"
           />
         </div>

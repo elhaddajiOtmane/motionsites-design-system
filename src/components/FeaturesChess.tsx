@@ -2,16 +2,16 @@ import { BlurText } from "./BlurText";
 
 const ROWS = [
   {
-    badge: "Speed",
-    heading: "Days, Not Months.",
-    body: "Most agencies take 3–6 months to launch a site. We ship in under two weeks — without cutting corners on craft.",
+    badge: "Content",
+    heading: "15,000+ Live Channels.",
+    body: "Sports, news, movies, kids, international — every category, every country. Updated live, 24 hours a day.",
     gif: "/src/assets/feature-1.gif",
     gifLeft: false,
   },
   {
-    badge: "Craft",
-    heading: "Obsessively Crafted.",
-    body: "Every pixel, every transition, every line of copy is deliberate. Your brand deserves more than a template.",
+    badge: "Quality",
+    heading: "Crystal-Clear 4K Streams.",
+    body: "Full HD and 4K Ultra HD across every channel. Adaptive bitrate ensures zero buffering even on slower connections.",
     gif: "/src/assets/feature-2.gif",
     gifLeft: true,
   },
@@ -40,7 +40,7 @@ function FeatureMedia({ src, alt }: { src: string; alt: string }) {
 
 export function FeaturesChess() {
   return (
-    <section id="work" className="bg-black py-24 px-6">
+    <section id="channels" className="bg-black py-24 px-6">
       <div className="max-w-6xl mx-auto flex flex-col gap-24">
         {ROWS.map((row) => (
           <div
@@ -61,7 +61,7 @@ export function FeaturesChess() {
               </p>
             </div>
 
-            {/* GIF */}
+            {/* GIF / media */}
             <div className="flex-1 w-full">
               <FeatureMedia src={row.gif} alt={row.heading} />
             </div>
