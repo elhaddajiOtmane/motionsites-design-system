@@ -1,67 +1,58 @@
-import { BlurText } from "./BlurText";
+import { motion } from "framer-motion";
+import { Tv, PlayCircle, Video, MonitorPlay, Film } from "lucide-react";
 
-const MOVIES = [
-  { title: "Action Pack", src: "/movie_action.png" },
-  { title: "Dynamic Force", src: "/movie_dynamic.png" },
-  { title: "Sci-Fi Universe", src: "/movie_scifi.png" },
-  { title: "Edge of Thriller", src: "/movie_thriller.png" },
-  { title: "Action Pack", src: "/movie_action.png" },
-  { title: "Dynamic Force", src: "/movie_dynamic.png" },
-  { title: "Sci-Fi Universe", src: "/movie_scifi.png" },
+const POSTERS = [
+  { id: 1, img: "/poster_action_1776487911427.png", provider: <Film size={40} /> },
+  { id: 2, img: "/poster_fantasy_1776487877529.png", provider: <Video size={40} /> },
+  { id: 3, img: "/poster_scifi_1776487896727.png", provider: <Tv size={40} /> },
+  { id: 4, img: "/poster_action_1776487911427.png", provider: <PlayCircle size={40} /> },
+  { id: 5, img: "/poster_fantasy_1776487877529.png", provider: <MonitorPlay size={40} /> },
 ];
 
 export function MoviesRow() {
   return (
-    <section className="bg-black py-24 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col gap-10">
-        <div className="flex flex-col items-center gap-4 text-center">
-          <div className="liquid-glass rounded-full px-3.5 py-1 text-xs font-medium text-white font-body">
-            On Demand
-          </div>
-          <BlurText
-            text="Watch the Latest Movies & TV Shows"
-            className="text-4xl md:text-5xl font-heading italic text-white tracking-tight leading-[0.9] max-w-2xl"
-          />
-          <p className="text-white/60 font-body font-light text-sm md:text-base max-w-xl">
-            50,000+ titles available instantly — no scheduling, no waiting, no limits.
-          </p>
+    <section className="pb-20 relative z-20">
+      {/* Logos Strip */}
+      <div className="container mx-auto px-6 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60">
+          <PlayCircle size={48} />
+          <Film size={48} />
+          <Tv size={48} className="text-yellow-500" />
+          <Video size={48} className="text-green-500" />
+          <Tv size={48} className="text-red-600" />
+          <MonitorPlay size={48} className="text-blue-500" />
+          <Film size={48} />
         </div>
+      </div>
 
-        {/* Horizontal scroll row */}
-        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide -mx-6 px-6">
-          {MOVIES.map((movie, i) => (
-            <div
-              key={i}
-              className="liquid-glass rounded-2xl overflow-hidden flex-shrink-0 w-40 md:w-52 cursor-pointer group"
-            >
-              <div className="relative">
-                <img
-                  src={movie.src}
-                  alt={movie.title}
-                  className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    const el = e.target as HTMLImageElement;
-                    el.style.display = "none";
-                    const parent = el.parentElement;
-                    if (parent) {
-                      parent.style.height = "280px";
-                      parent.style.background = "rgba(255,255,255,0.05)";
-                    }
-                  }}
-                />
-                {/* Play overlay */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
-                  <div className="liquid-glass-strong rounded-full w-12 h-12 flex items-center justify-center">
-                    <span className="text-white text-lg">▶</span>
-                  </div>
-                </div>
-              </div>
-              <div className="p-3">
-                <p className="text-white/80 font-body text-xs font-medium truncate">{movie.title}</p>
-              </div>
+      {/* Posters Grid Map */}
+      <div className="w-full flex overflow-hidden">
+        {POSTERS.map((item, index) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative flex-1 group cursor-pointer overflow-hidden aspect-[2/3] max-w-[20%]"
+          >
+            <img
+              src={item.img}
+              alt="Movie Poster"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            {/* Dark overlay at bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80" />
+            
+            {/* Provider Logo Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+              {item.provider}
             </div>
-          ))}
-        </div>
+            
+            {/* Hover overlay border */}
+            <div className="absolute inset-0 border-4 border-transparent group-hover:border-purple-500/50 transition-colors duration-300" />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
